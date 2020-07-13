@@ -4,6 +4,7 @@ const cors = require('cors')
 
 const {connectToDb, mongoose} = require('./mongo')
 
+const courseRouter = require('./routers/course.router')
 connectToDb()
 
 app.use(
@@ -15,6 +16,8 @@ app.use(
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
+/** ADD API RESOURCES */
+app.use('/api/courses', courseRouter)
 const PORT = 8080
 
 app.listen(PORT, () => {
