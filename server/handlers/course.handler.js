@@ -23,12 +23,11 @@ const getAllCourses = (req, res, next) => {
 
 /** POST NEW COURSE */
 
-const createNewCourse = (req, res, next) => {
+const createCourse = (req, res, next) => {
     Course.create(req.body, (err, createdCourse) => {
         try {
             if(err) next(err)
-            if(!createdCourse)
-                throw new Error("couldn't create course")
+            if(!createdCourse) throw new Error("couldn't create course")
             res.createdCourse = createdCourse
             next()
         } catch (err){next(err)}
@@ -38,3 +37,9 @@ const createNewCourse = (req, res, next) => {
 /** UPDATE COURSE OR PARTICIPANTS */
 
 /** DELETE COURSE */
+
+/**EXPORT**/
+module.exports = {
+    getAllCourses,
+    createCourse
+}

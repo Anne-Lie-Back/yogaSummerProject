@@ -3,3 +3,18 @@
 GET http://localhost:8080/api/courses
 
 ###
+
+//POST COURSE
+POST http://localhost:8080/api/courses
+Content-Type: application/json
+
+{
+    "title" : "Strand-Yoga",
+    "date" : "30 april",
+    "yoga" : "yin-yoga",
+    "desc" : "Härlig yoga vid stranden",
+    "location" : "Marsstrands havshotell",
+    "nrOfSeats" : 10,
+    "price" : 100,
+    "participants" : []
+}
