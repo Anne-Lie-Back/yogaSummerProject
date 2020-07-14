@@ -42,4 +42,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:8080/api/courses/5f0d992ee44eb839f424aec1
+DELETE http://localhost:8080/api/courses/5f0da98f83d41a08a47d2a98

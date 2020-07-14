@@ -35,7 +35,7 @@ router.put('/:id', updateCourse, (req, res) => {
 
 //DELETE course
 router.delete('/:id', deleteCourse, (req,res) => {
-    res.status(res.deletedCourse)
+    res.status(200).json(res.deletedCourse)
 })
 
 //DELETE course participants
