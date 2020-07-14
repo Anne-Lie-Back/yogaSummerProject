@@ -34,12 +34,48 @@ const createCourse = (req, res, next) => {
     })
 }
 
-/** UPDATE COURSE OR PARTICIPANTS */
-
+/** UPDATE COURSE **/
+const updateCourse = (req, res, next) => {
+    Course.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true },
+      (error, course) => {
+        if (error) next(error);
+        try {
+          if (!course) {
+            throw new Error("Couldn't find course to update");
+          } else {
+            res.updatedCourse = course;
+            next();
+          }
+        } catch (error) {
+          next(error);
+        }
+      }
+    );
+  };
 /** DELETE COURSE */
 
+const deleteCourse = (req, res, next) => {
+    Course.findByIdAndDelete(req.params.id, (err, deletedCourse) => {
+        if(err) next(err)
+        try {
+            if(!deletedCourse){
+                throw new Error("Couldn't find product")
+            }else{
+                res.deletedCourse = deletedCourse
+                next()
+            }
+        } catch(err) {
+            next(err)
+        }
+    })
+}
 /**EXPORT**/
 module.exports = {
     getAllCourses,
-    createCourse
+    createCourse,
+    updateCourse,
+    deleteCourse
 }

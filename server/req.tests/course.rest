@@ -4,12 +4,17 @@ GET http://localhost:8080/api/courses
 
 ###
 
+//GET ONE COURSE
+GET http://localhost:8080/api/courses/:id
+
+###
+
 //POST COURSE
 POST http://localhost:8080/api/courses
 Content-Type: application/json
 
 {
-    "title" : "Strand-Yoga",
+    "title" : "Poopyoga",
     "date" : "30 april",
     "yoga" : "yin-yoga",
     "desc" : "Härlig yoga vid stranden",
@@ -18,3 +23,23 @@ Content-Type: application/json
     "price" : 100,
     "participants" : []
 }
+
+###
+
+PUT http://localhost:8080/api/courses/5f0d9ab0e44eb839f424aec2
+Content-Type: application/json
+
+{
+    "title" : "Skogs-Yoga",
+    "date" : "20 juni",
+    "yoga" : "yoga",
+    "desc" : "Härlig yoga i skogen",
+    "location" : "Safjällets naturreservat",
+    "nrOfSeats" : 10,
+    "price" : 200,
+    "participants" : []
+}
+
+###
+
+DELETE http://localhost:8080/api/courses/5f0d992ee44eb839f424aec1

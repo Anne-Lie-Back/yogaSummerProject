@@ -5,7 +5,9 @@ const { Course } = require('../models/course.model')
 
 const {
     getAllCourses,
-    createCourse
+    createCourse,
+    updateCourse,
+    deleteCourse
 } = require('../handlers/course.handler')
 
 //GET all courses
@@ -24,15 +26,16 @@ router.post('/', createCourse, (req, res) => {
 })
 
 //UPDATE course and/or participants
-router.put('/:id', (req, res) => {
-    res.status(200).json(res)
-})
+router.put('/:id', updateCourse, (req, res) => {
+      res.status(200).json(res.updatedCourse);
+    }
+  );
 
 //UPDATE course participants
 
 //DELETE course
-router.delete('/:id', (req,res) => {
-    res.status(res)
+router.delete('/:id', deleteCourse, (req,res) => {
+    res.status(res.deletedCourse)
 })
 
 //DELETE course participants
