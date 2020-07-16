@@ -26,7 +26,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:8080/api/courses/5f0d9ab0e44eb839f424aec2
+PUT http://localhost:8080/api/courses/5f0c6e2ffd77eb38681117c5
 Content-Type: application/json
 
 {
