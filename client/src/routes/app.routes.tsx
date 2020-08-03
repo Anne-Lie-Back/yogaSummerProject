@@ -22,3 +22,5 @@ function AppRouter(){
         </Switch>
     )
 }
+
+export default AppRouter
