@@ -27,7 +27,6 @@ const Header = () =>{
             <Link to = '/'>
                 <img src={require('../assets/images/logotype.text.white.png')} />
             </Link>
-
         </HeaderContainer>
     )
 }
