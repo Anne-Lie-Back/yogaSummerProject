@@ -10,7 +10,6 @@ const MenuWrapper = styled('div')`
     align-items: center;
     color: white;
     height: 2.5rem;
-    font-family: 'Poppins', sans-serif;
     font-weight: 400;
 `;
 function Menu(){

@@ -1,7 +1,7 @@
 export const theme = {
     textColors: {
         primary: '#1E1E1F',
-        secondary: '#44DAD7',   
+        secondary: '#44DAD7',
     },
 
     box: {

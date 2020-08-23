@@ -15,7 +15,8 @@ const Layout = ({children}:any) => {
                         padding: 0;
                     }
                     body {
-                        background-color: orange
+                        background-color: orange;
+                        font-family: 'Poppins', sans-serif;
                     }
                 `}
             />
