@@ -9,8 +9,17 @@ const MenuWrapper = styled('div')`
     justify-content:space-around;
     align-items: center;
     color: white;
-    height: 2.5rem;
+    height: 1.9rem;
     font-weight: 400;
+
+    & a{
+            text-decoration: none;
+            color: #ffffff;
+            transition: color 0.4s ease-in;
+        };
+    & a:hover{
+        color: #e6b2cc;
+    }
 `;
 function Menu(){
     const history = useHistory()
@@ -39,7 +48,7 @@ function Menu(){
     return (
         <MenuWrapper>
             {menuItems.map((item, index) => 
-                <Link to = {item.route} key = {`${item.label}'${index}`} style = {{textDecoration: 'none', color: 'white'}}> 
+                <Link to = {item.route} key = {`${item.label}'${index}`}> 
                     <p>{item.label}</p>
                 </Link>
             )}

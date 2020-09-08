@@ -7,13 +7,13 @@ import styled from '@emotion/styled'
 import {css, jsx} from '@emotion/core'
 
 const HeaderContainer = styled("div")`
-    height: 6.25rem;
+    height: 4.37rem;
     background-color: #FFFFFF;
     display: flex;
     align-items: center;
 
     & img {
-        height: 4rem;
+        height: 3rem;
         margin: 1rem 4rem;
     };
 `;
