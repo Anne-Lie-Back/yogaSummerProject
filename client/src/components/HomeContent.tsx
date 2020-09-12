@@ -1,12 +1,18 @@
 import React from 'react';
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
+
+import sideImageDesktop from '../assets/images/sideImage.desktop.jpg'
+import moreInfoImage from '../assets/images/flowerBox.jpg'
+import course1Image from '../assets/images/sea.jpg'
+import course3Image from '../assets/images/forest.jpg'
 
 const Wrapper = styled("div")`
     width: 100%;
+    height: 80rem;
     display: flex;
     justify-content: center;
+    background-color: #ffffff;
 `
-
 const GridContainer = styled("div")`
     display: grid;
     width: 100%;
@@ -21,37 +27,46 @@ const GridContainer = styled("div")`
 
     & .sideImage{
         grid-area: sideImage;
-        background-color: blue;
+        background-image: url(${sideImageDesktop});
+        background-size: cover;
+        background-position: center;
     }
 
     & .story{
         grid-area: story;
-        background-color: purple;
+        background-color: #ffffff;
     }
 
     & .courseIcon{
         grid-area: courseIcon;
-        background-color: pink;
+        background-color: #ffffff;
     }
 
     & .moreInfo{
         grid-area: moreInfo;
-        background-color: yellow;
+        background-image: url(${moreInfoImage});
+        background-size: cover;
+        background-position: center;
+
     }
 
     & .course1{
         grid-area: course1;
-        background-color: green;
+        background-image: url(${course1Image});
+        background-size: cover;
+        background-position: center;
     }
 
     & .course2{
         grid-area: course2;
-        background-color: lightcoral;
+        background-color: #ffffff;
     }
 
     & .course3{
         grid-area: course3;
-        background-color: lightgrey;
+        background-image: url(${course3Image});
+        background-size: cover;
+        background-position: center;
     }
     
 `
