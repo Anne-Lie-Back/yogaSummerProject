@@ -20,6 +20,15 @@ const Layout = ({children}:any) => {
                             background-color: orange;
                             font-family: ${theme.textFont.primary};
                         }
+                        p{
+                            font-weight: 300;
+                            font-size: 16px;
+                            letter-spacing: 2px;
+                            line-height: 1.8rem;
+                        }
+                        a{
+                            text-decoration: none;
+                        }
                     `}
                 />
                 {children}

@@ -1,8 +1,11 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import styled from '@emotion/styled';
 import {ThemeProvider} from 'emotion-theming'
 
 import {theme} from '../theme/theme'
+
+import Story from './HomeContentComp/Story'
 
 import sideImageDesktop from '../assets/images/sideImage.desktop.jpg'
 import moreInfoImage from '../assets/images/flowerBox.jpg'
@@ -43,6 +46,25 @@ const GridContainer = styled("div")`
     & .courseIcon{
         grid-area: courseIcon;
         background-color: ${theme.bgColors.primary};
+        color: ${theme.textColors.primary};
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content:center;
+    }
+
+    & .courseIcon img{
+        margin-bottom: 1rem;
+    }
+
+    & .courseIcon a{
+        color: ${theme.textColors.primary};
+    }
+
+    & .courseIcon:hover{
+        color: ${theme.textColors.onHover};
+        transition: color 0.3s ease-in-out;
+        cursor: pointer;
     }
 
     & .moreInfo{
@@ -78,9 +100,14 @@ function HomeContent() {
         <ThemeProvider theme = {theme}>
             <Wrapper>
                 <GridContainer>
-                    <div className = "sideImage">hej</div>
-                    <div className = "story">på</div>
-                    <div className = "courseIcon">dig</div>
+                    <div className = "sideImage"></div>
+                    <div className = "story">
+                        <Story/>
+                    </div>     
+                        <Link to ="/courses" className = "courseIcon">     
+                            <img src = {require('../assets/images/icon.color.png')} alt=" FlowerYoga Logotype"/>
+                            <h3>Boka lektion</h3>  
+                        </Link>
                     <div className = "moreInfo">din</div>
                     <div className = "course1">kotte</div>
                     <div className = "course2">bajs</div>
