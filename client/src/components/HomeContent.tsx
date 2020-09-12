@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import {ThemeProvider} from 'emotion-theming'
+
+import {theme} from '../theme/theme'
 
 import sideImageDesktop from '../assets/images/sideImage.desktop.jpg'
 import moreInfoImage from '../assets/images/flowerBox.jpg'
@@ -11,7 +14,7 @@ const Wrapper = styled("div")`
     height: 80rem;
     display: flex;
     justify-content: center;
-    background-color: #ffffff;
+    background-color: ${theme.bgColors.primary};
 `
 const GridContainer = styled("div")`
     display: grid;
@@ -34,12 +37,12 @@ const GridContainer = styled("div")`
 
     & .story{
         grid-area: story;
-        background-color: #ffffff;
+        background-color: ${theme.bgColors.primary};
     }
 
     & .courseIcon{
         grid-area: courseIcon;
-        background-color: #ffffff;
+        background-color: ${theme.bgColors.primary};
     }
 
     & .moreInfo{
@@ -59,7 +62,7 @@ const GridContainer = styled("div")`
 
     & .course2{
         grid-area: course2;
-        background-color: #ffffff;
+        background-color: ${theme.bgColors.primary};
     }
 
     & .course3{
@@ -72,17 +75,19 @@ const GridContainer = styled("div")`
 `
 function HomeContent() {
     return(
-        <Wrapper>
-          <GridContainer>
-                <div className = "sideImage">hej</div>
-                <div className = "story">på</div>
-                <div className = "courseIcon">dig</div>
-                <div className = "moreInfo">din</div>
-                <div className = "course1">kotte</div>
-                <div className = "course2">bajs</div>
-                <div className= "course3">korv</div>
-            </GridContainer>  
-        </Wrapper>
+        <ThemeProvider theme = {theme}>
+            <Wrapper>
+                <GridContainer>
+                    <div className = "sideImage">hej</div>
+                    <div className = "story">på</div>
+                    <div className = "courseIcon">dig</div>
+                    <div className = "moreInfo">din</div>
+                    <div className = "course1">kotte</div>
+                    <div className = "course2">bajs</div>
+                    <div className= "course3">korv</div>
+                </GridContainer>  
+            </Wrapper>
+        </ThemeProvider>
     )
 }
 

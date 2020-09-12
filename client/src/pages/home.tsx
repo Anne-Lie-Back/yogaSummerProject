@@ -1,6 +1,9 @@
 
 import React from 'react'
 import styled from '@emotion/styled'
+import {ThemeProvider} from 'emotion-theming'
+import {theme} from '../theme/theme'
+
 import HomeContent from '../components/HomeContent'
 import {keyframes} from '@emotion/core'
 
@@ -23,25 +26,25 @@ const HeroContainer = styled('div')`
             font-family: poppins, sans-serif;
             font-weight: 300;
             font-size: 30px;
-            color: #e6b2cc;
+            color: ${theme.textColors.special};
             text-shadow:0 0 7px #ffffff;
             letter-spacing: 3px;
         }
 
         & h1 span{
-            color: #5c8ca1;
+            color: ${theme.textColors.secondary};
         }
 `
 
 function Home(){
     return (
-        <>
+        <ThemeProvider theme = {theme}>
             <HeroContainer>
                 <img src={require('../assets/images/yogasummer.hero.jpg')} alt="Woman sitting in lotus position and looking out at the ocean"/>
                 <h1> Feel the Flow of <span>Flower Yoga</span></h1>
             </HeroContainer>
             <HomeContent/>
-        </>
+        </ThemeProvider>
     )
 }
 
