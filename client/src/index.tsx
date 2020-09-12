@@ -2,12 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom'
 import App from './App';
+import Layout from './components/Layout'
 
 ReactDOM.render(
-  <React.StrictMode>
+  
+    <Layout> 
     <BrowserRouter>
-      <App />
+      
+        <App />
+      
     </BrowserRouter>
-  </React.StrictMode>,
+    </Layout>
+
+  ,
   document.getElementById('root')
 );
