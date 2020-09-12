@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import Header from './components/header'
 import Menu from './components/menu'
 import AppRouter from './routes/app.routes'
+import ContactFooter from './components/ContactFooter'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
       <Header/>
       <Menu/>
       <AppRouter/>
+      <ContactFooter/>
+      <Footer/>
     </div>
   );
 }
