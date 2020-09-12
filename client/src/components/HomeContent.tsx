@@ -6,6 +6,9 @@ import {ThemeProvider} from 'emotion-theming'
 import {theme} from '../theme/theme'
 
 import Story from './HomeContentComp/Story'
+import InfoHome from './HomeContentComp/InfoHome'
+import CourseBox from './HomeContentComp/CourseBox'
+import Button from './Button'
 
 import sideImageDesktop from '../assets/images/sideImage.desktop.jpg'
 import moreInfoImage from '../assets/images/flowerBox.jpg'
@@ -24,7 +27,7 @@ const GridContainer = styled("div")`
     width: 100%;
     max-width: 71.25rem;
     height: 42.5rem;
-    grid-template-columns: 33%;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 600px 50% 50%;
     grid-template-areas:
     "sideImage story story"
@@ -72,7 +75,8 @@ const GridContainer = styled("div")`
         background-image: url(${moreInfoImage});
         background-size: cover;
         background-position: center;
-
+        padding: 2rem 43px;
+        z-index: 2;
     }
 
     & .course1{
@@ -85,6 +89,13 @@ const GridContainer = styled("div")`
     & .course2{
         grid-area: course2;
         background-color: ${theme.bgColors.primary};
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 2rem 1rem;
+        display: flex;
+        text-align:center;
     }
 
     & .course3{
@@ -96,6 +107,11 @@ const GridContainer = styled("div")`
     
 `
 function HomeContent() {
+
+    const handleOnClick = () => {
+        console.log('SCHEMA!')
+    }
+
     return(
         <ThemeProvider theme = {theme}>
             <Wrapper>
@@ -108,10 +124,21 @@ function HomeContent() {
                             <img src = {require('../assets/images/icon.color.png')} alt=" FlowerYoga Logotype"/>
                             <h3>Boka lektion</h3>  
                         </Link>
-                    <div className = "moreInfo">din</div>
-                    <div className = "course1">kotte</div>
-                    <div className = "course2">bajs</div>
-                    <div className= "course3">korv</div>
+                    <div className = "moreInfo">
+                        <InfoHome/>
+                    </div>
+                    <div className = "course1">
+                        <CourseBox title = "Havet?"/>
+                    </div>
+                    <div className = "course2">
+                        <p>
+                        Vi har även rullande 
+                        <br/>
+                        schema i vår yogastudio
+                        </p>
+                        <Button buttonType = "primary" title = {'Schema'} onClick = {handleOnClick}/>
+                    </div>
+                    <div className= "course3"><CourseBox title = "Skogen?"/></div>
                 </GridContainer>  
             </Wrapper>
         </ThemeProvider>
