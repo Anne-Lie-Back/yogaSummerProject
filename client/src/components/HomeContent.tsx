@@ -8,6 +8,7 @@ import {theme} from '../theme/theme'
 import Story from './HomeContentComp/Story'
 import InfoHome from './HomeContentComp/InfoHome'
 import CourseBox from './HomeContentComp/CourseBox'
+import CourseBoxSpecial from './HomeContentComp/CourseBox.special'
 import Button from './Button'
 
 import sideImageDesktop from '../assets/images/sideImage.desktop.jpg'
@@ -89,13 +90,6 @@ const GridContainer = styled("div")`
     & .course2{
         grid-area: course2;
         background-color: ${theme.bgColors.primary};
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-        padding: 2rem 1rem;
-        display: flex;
-        text-align:center;
     }
 
     & .course3{
@@ -131,12 +125,7 @@ function HomeContent() {
                         <CourseBox title = "Havet?"/>
                     </div>
                     <div className = "course2">
-                        <p>
-                        Vi har även rullande 
-                        <br/>
-                        schema i vår yogastudio
-                        </p>
-                        <Button buttonType = "primary" title = {'Schema'} onClick = {handleOnClick}/>
+                        <CourseBoxSpecial/>
                     </div>
                     <div className= "course3"><CourseBox title = "Skogen?"/></div>
                 </GridContainer>  
