@@ -17,7 +17,7 @@ const Layout = ({children}:any) => {
                             padding: 0;
                         }
                         body {
-                            background-color: orange;
+                            background-color: ${theme.bgColors.primary};
                             font-family: ${theme.textFont.primary};
                         }
                         p{
