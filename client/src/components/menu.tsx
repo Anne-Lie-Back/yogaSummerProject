@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link, useHistory, useLocation} from 'react-router-dom'
 import styled from '@emotion/styled'
+import {ThemeProvider} from 'emotion-theming'
+import {theme} from '../theme/theme'
 
 const MenuWrapper = styled('div')`
-    background-color: #5c8ca1;
+    background-color: ${theme.bgColors.secondary};
     display: flex;
     flex-direction: row;
     justify-content:space-around;
@@ -14,11 +16,11 @@ const MenuWrapper = styled('div')`
 
     & a{
             text-decoration: none;
-            color: #ffffff;
+            color: ${theme.textColors.white};
             transition: color 0.4s ease-in;
         };
     & a:hover{
-        color: #e6b2cc;
+        color: ${theme.textColors.onHover};
     }
 `;
 function Menu(){
@@ -46,13 +48,15 @@ function Menu(){
         },
     ]
     return (
-        <MenuWrapper>
-            {menuItems.map((item, index) => 
-                <Link to = {item.route} key = {`${item.label}'${index}`}> 
-                    <p>{item.label}</p>
-                </Link>
-            )}
-        </MenuWrapper>
+        <ThemeProvider theme = {theme}>
+            <MenuWrapper>
+                {menuItems.map((item, index) => 
+                    <Link to = {item.route} key = {`${item.label}'${index}`}> 
+                        <p>{item.label}</p>
+                    </Link>
+                )}
+            </MenuWrapper>
+        </ThemeProvider>
     )
 }
 

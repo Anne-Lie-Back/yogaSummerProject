@@ -1,5 +1,15 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import styled from '@emotion/styled';
+import {ThemeProvider} from 'emotion-theming'
+
+import {theme} from '../theme/theme'
+
+import Story from './HomeContentComp/Story'
+import InfoHome from './HomeContentComp/InfoHome'
+import CourseBox from './HomeContentComp/CourseBox'
+import CourseBoxSpecial from './HomeContentComp/CourseBox.special'
+import Button from './Button'
 
 import sideImageDesktop from '../assets/images/sideImage.desktop.jpg'
 import moreInfoImage from '../assets/images/flowerBox.jpg'
@@ -11,14 +21,14 @@ const Wrapper = styled("div")`
     height: 80rem;
     display: flex;
     justify-content: center;
-    background-color: #ffffff;
+    background-color: ${theme.bgColors.primary};
 `
 const GridContainer = styled("div")`
     display: grid;
     width: 100%;
     max-width: 71.25rem;
     height: 42.5rem;
-    grid-template-columns: 33%;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 600px 50% 50%;
     grid-template-areas:
     "sideImage story story"
@@ -34,12 +44,31 @@ const GridContainer = styled("div")`
 
     & .story{
         grid-area: story;
-        background-color: #ffffff;
+        background-color: ${theme.bgColors.primary};
     }
 
     & .courseIcon{
         grid-area: courseIcon;
-        background-color: #ffffff;
+        background-color: ${theme.bgColors.primary};
+        color: ${theme.textColors.primary};
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content:center;
+    }
+
+    & .courseIcon img{
+        margin-bottom: 1rem;
+    }
+
+    & .courseIcon a{
+        color: ${theme.textColors.primary};
+    }
+
+    & .courseIcon:hover{
+        color: ${theme.textColors.onHover};
+        transition: color 0.3s ease-in-out;
+        cursor: pointer;
     }
 
     & .moreInfo{
@@ -47,7 +76,8 @@ const GridContainer = styled("div")`
         background-image: url(${moreInfoImage});
         background-size: cover;
         background-position: center;
-
+        padding: 2rem 43px;
+        z-index: 2;
     }
 
     & .course1{
@@ -59,7 +89,7 @@ const GridContainer = styled("div")`
 
     & .course2{
         grid-area: course2;
-        background-color: #ffffff;
+        background-color: ${theme.bgColors.primary};
     }
 
     & .course3{
@@ -71,18 +101,36 @@ const GridContainer = styled("div")`
     
 `
 function HomeContent() {
+
+    const handleOnClick = () => {
+        console.log('SCHEMA!')
+    }
+
     return(
-        <Wrapper>
-          <GridContainer>
-                <div className = "sideImage">hej</div>
-                <div className = "story">på</div>
-                <div className = "courseIcon">dig</div>
-                <div className = "moreInfo">din</div>
-                <div className = "course1">kotte</div>
-                <div className = "course2">bajs</div>
-                <div className= "course3">korv</div>
-            </GridContainer>  
-        </Wrapper>
+        <ThemeProvider theme = {theme}>
+            <Wrapper>
+                <GridContainer>
+                    <div className = "sideImage"></div>
+                    <div className = "story">
+                        <Story/>
+                    </div>     
+                        <Link to ="/courses" className = "courseIcon">     
+                            <img src = {require('../assets/images/icon.color.png')} alt=" FlowerYoga Logotype"/>
+                            <h3>Boka lektion</h3>  
+                        </Link>
+                    <div className = "moreInfo">
+                        <InfoHome/>
+                    </div>
+                    <div className = "course1">
+                        <CourseBox title = "Havet?"/>
+                    </div>
+                    <div className = "course2">
+                        <CourseBoxSpecial/>
+                    </div>
+                    <div className= "course3"><CourseBox title = "Skogen?"/></div>
+                </GridContainer>  
+            </Wrapper>
+        </ThemeProvider>
     )
 }
 

@@ -1,27 +1,40 @@
 import React from 'react'
 
 import {Global, css, jsx} from '@emotion/core'
-//import {useTheme} from 'emotion-theming'
+import {ThemeProvider} from 'emotion-theming';
+import { theme } from '../theme/theme'
 
 const Layout = ({children}:any) => {
 
     return(
         <div>
-            <Global 
-                styles = {css`
-                    * {
-                        box-sizing: border-box;
-                        margin: 0;
-                        padding: 0;
-                    }
-                    body {
-                        background-color: orange;
-                        font-family: 'Poppins', sans-serif;
-                    }
-                `}
-            />
-            {children}
+            <ThemeProvider theme = {theme}>
+                <Global 
+                    styles = {css`
+                        * {
+                            box-sizing: border-box;
+                            margin: 0;
+                            padding: 0;
+                        }
+                        body {
+                            background-color: ${theme.bgColors.primary};
+                            font-family: ${theme.textFont.primary};
+                        }
+                        p{
+                            font-weight: 300;
+                            font-size: 16px;
+                            letter-spacing: 2px;
+                            line-height: 1.8rem;
+                        }
+                        a{
+                            text-decoration: none;
+                        }
+                    `}
+                />
+                {children}
+            </ThemeProvider>
         </div>
+        
     )
 }
 
